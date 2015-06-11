@@ -59,6 +59,7 @@ Module.symvers
 #
 !/.gitignore
 !.mailmap
+!.isolinux.bin
 
 #
 # Generated include files
