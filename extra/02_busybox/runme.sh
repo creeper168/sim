@@ -9,3 +9,13 @@ make  -j ${CPUS}
 
 make install
 
+
+prefix=$(grep CONFIG_PREFIX .config | awk -F\" '{print $2}')
+etcpath=${prefix}/etc/
+
+
+mkdir -p ${etcpath}
+#users,groups,inittab
+cp -prf ./etc/* ${etcpath}/  
+
+

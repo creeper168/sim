@@ -1,0 +1,19 @@
+#!/bin/sh
+
+mount -t proc /proc /proc
+mount -t devpts devpts /dev/pts 
+mount -t sysfs sysfs /sys 
+mount -t ext2 /dev/sda1 /mnt 
+
+chmod +s /bin/su
+
+ifconfig lo up 
+
+set +f                 
+for s in /etc/init.d/S*; do                       
+        [ -x "$s" ] || continue                                 
+        echo $s start        
+        "$s" "start" </dev/null || warn "$s failed"
+done                                                 
+set -f
+

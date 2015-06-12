@@ -1,0 +1,5 @@
+
+console::sysinit:/etc/init.d/rcS 
+
+console::respawn:/sbin/getty  0 /dev/console
+

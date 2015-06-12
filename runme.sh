@@ -12,10 +12,21 @@ compile_kernel(){
 
 compile_extra(){
 	pwd
-	for i in $(ls extra)
+	for i in ./extra/*
 	do
 		echo build $i
-		pushd ./extra/$i
+		pushd ./$i
+		sh ./runme.sh
+		popd
+	done
+}
+
+compile_src(){
+	pwd
+	for i in ./src/*
+	do
+		echo build $i
+		pushd ./$i
 		sh ./runme.sh
 		popd
 	done
@@ -42,3 +53,6 @@ done
 
 [ "${EXTRA}" == "1" ] && compile_extra
 [ "${KERNEL}" == "1" ] && compile_kernel
+
+compile_src
+

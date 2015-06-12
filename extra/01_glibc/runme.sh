@@ -19,7 +19,7 @@ if [ "${basepath}" != "${buildpath}" ] ; then
 fi
 
 export CFLAGS="-g -O2"
-../glibc/configure  --enable-add-ons  --disable-sanity-checks  --libdir=/lib
+../01_glibc/configure  --enable-add-ons  --disable-sanity-checks  --libdir=/lib
 
 
 CPUS=`grep processor /proc/cpuinfo| wc -l`
@@ -37,7 +37,12 @@ cp -f ./libc.so.6 			${DEST_LIB_PATH}/
 cp -f ./math/libm.so.6 			${DEST_LIB_PATH}/
 cp -f ./nptl/libpthread.so.0 		${DEST_LIB_PATH}/
 cp -f ./login/libutil.so.1 		${DEST_LIB_PATH}/
-
+cp -f ./dlfcn/libdl.so.2		${DEST_LIB_PATH}/
+cp -f ./rt/librt.so.1			${DEST_LIB_PATH}/
+cp -f ./crypt/libcrypt.so.1		${DEST_LIB_PATH}/
+cp -f ./resolv/libresolv.so.2 		${DEST_LIB_PATH}/
+cp -f ./nis/libnss_compat.so.2		${DEST_LIB_PATH}/
+cp -f ./nss/libnss_files.so.2 		${DEST_LIB_PATH}/
 
 
 #./elf/ld-linux-x86-64.so.2
