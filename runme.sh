@@ -16,7 +16,7 @@ compile_extra(){
 	do
 		echo build $i
 		pushd ./$i
-		sh ./runme.sh
+		sh ./runme.sh >> ./compile.log
 		popd
 	done
 }
@@ -27,7 +27,8 @@ compile_src(){
 	do
 		echo build $i
 		pushd ./$i
-		sh ./runme.sh
+		sh ./runme.sh >> ./compile.log
+
 		popd
 	done
 }
