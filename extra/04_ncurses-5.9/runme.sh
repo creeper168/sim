@@ -14,7 +14,9 @@ make install
 DEST_LIB_PATH=${basepath}/../../target/x86-64/fs/
 cp -df ${tmpinstallpath}/lib/*.so*  ${DEST_LIB_PATH}/lib/
 
+make distclean
 
+rm  Ada95/src/Makefile -f
 
 
 

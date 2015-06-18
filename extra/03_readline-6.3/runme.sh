@@ -14,4 +14,5 @@ DEST_LIB_PATH=${basepath}/../../target/x86-64/fs/
 cp -rf ${tmpinstallpath}/lib  ${DEST_LIB_PATH}/
 
 
+make distclean
 
