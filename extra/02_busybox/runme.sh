@@ -18,4 +18,6 @@ mkdir -p ${etcpath}
 #users,groups,inittab
 cp -prf ./etc/* ${etcpath}/  
 
+make distclean
+
 

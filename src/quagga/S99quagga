@@ -1,0 +1,34 @@
+
+hostname test
+
+adduser vtyuser -G root -H -s /bin/vtysh -h / -D
+
+passwd vtyuser >/dev/null 2&>1 << EOF
+1
+1
+EOF
+
+echo login as 'vtyuser' user. default password: '1'.  > /etc/issue
+
+ZEBRA_CONFIG=/mnt/zebra.conf
+OSPFD_CONFIG=/mnt/ospf.conf
+BABELD_CONFIG=/mnt/babel.conf
+BGPD_CONFIG=/mnt/bgpd.conf
+RIPD_CONFIG=/mnt/rip.conf
+RIPNGD_CONFIG=/mnt/ripng.conf
+
+touch $ZEBRA_CONFIG
+touch $OSPFD_CONFIG
+touch $BABELD_CONFIG
+touch $BGPD_CONFIG
+touch $RIPD_CONFIG
+touch $RIPNGD_CONFIG
+
+
+zebra -d -A 127.0.0.1 -f $ZEBRA_CONFIG
+ospfd -d -A 127.0.0.1 -f $OSPFD_CONFIG
+bgpd  -d -A 127.0.0.1 -f $BGPD_CONFIG
+babeld -d -A 127.0.0.1 -f $BABELD_CONFIG
+ripd -d -A 127.0.0.1 -f $RIPD_CONFIG
+ripngd -d -A 127.0.0.1 -f $RIPNGD_CONFIG
+

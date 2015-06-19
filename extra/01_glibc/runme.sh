@@ -45,6 +45,9 @@ cp -f ./nis/libnss_compat.so.2		${DEST_LIB_PATH}/
 cp -f ./nss/libnss_files.so.2 		${DEST_LIB_PATH}/
 
 
+make distclean
+
+
 #./elf/ld-linux-x86-64.so.2
 #./libc.so.6
 #./resolv/libanl.so.1

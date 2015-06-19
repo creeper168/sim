@@ -14,10 +14,11 @@ compile_extra(){
 	pwd
 	for i in ./extra/*
 	do
-		echo build $i
+		echo build $i start
 		pushd ./$i
-		sh ./runme.sh >> ./compile.log
+		sh ./runme.sh > ./compile.log 2>&1
 		popd
+		echo build $i ok 
 	done
 }
 
@@ -25,9 +26,10 @@ compile_src(){
 	pwd
 	for i in ./src/*
 	do
-		echo build $i
+		echo build $i start
 		pushd ./$i
-		sh ./runme.sh >> ./compile.log
+		sh ./runme.sh > ./compile.log 2>&1
+		echo build $i ok 
 
 		popd
 	done
